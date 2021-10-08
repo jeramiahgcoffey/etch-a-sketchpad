@@ -1,26 +1,42 @@
+:root {
+    --num_rows: 16;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
 }
 
-.grid {
-    min-height: 100vh;
+body {
     display: grid;
-    background-color: silver;
-    grid-template-columns: repeat(16, 50px);
-    grid-auto-rows: 50px;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 100vh;
+    justify-items: center;
+    align-items: center;
+}
+
+.grid {
+    grid-row: 1;
+    width: 700px;
+    height: 700px;
+    display: grid;
+    grid-template-columns: repeat(var(--num_rows), 1fr);
+    grid-template-rows: repeat(var(--num_rows), 1fr);
     justify-content: center;
     align-content: center;
 }
 
 .pixel {
-    min-width: 10px;
-    min-height: 10px;
     background: white;
-    border: 1px solid whitesmoke;
+    border: 1px solid gray;
     transition: 0.2s;
 }
 
 .activate {
     background-color: black;
+}
+
+.controls {
+    grid-column: 1;
+    grid-row: 1;
 }

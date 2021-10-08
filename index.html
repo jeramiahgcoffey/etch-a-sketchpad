@@ -7,7 +7,18 @@
         <title>Document</title>
     </head>
     <body>
-        <button class="clear">CLEAR</button>
+        <div class="controls">
+            <button class="clear">CLEAR</button>
+            <input
+                id="grid-selector"
+                type="range"
+                min="16"
+                max="100"
+                value="16"
+                step="2"
+            />
+            <span class="grid-size-output"></span>
+        </div>
         <div class="grid"></div>
     </body>
     <script src="script.js"></script>
