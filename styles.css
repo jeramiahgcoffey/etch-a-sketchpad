@@ -1,5 +1,6 @@
 :root {
     --num_rows: 16;
+    --color_choice: #000000;
 }
 
 * {
@@ -8,6 +9,7 @@
 }
 
 body {
+    background-color: skyblue;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     grid-template-rows: 100vh;
@@ -28,12 +30,12 @@ body {
 
 .pixel {
     background: white;
-    border: 1px solid gray;
+    border: 1px solid rgba(233, 233, 233, 0.26);
     transition: 0.2s;
 }
 
 .activate {
-    background-color: black;
+    background-color: var(--color_choice);
 }
 
 .controls {
