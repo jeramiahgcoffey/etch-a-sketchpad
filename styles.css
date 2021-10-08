@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.grid {
+    min-height: 100vh;
+    display: grid;
+    background-color: silver;
+    grid-template-columns: repeat(16, 50px);
+    grid-auto-rows: 50px;
+    justify-content: center;
+    align-content: center;
+}
+
+.pixel {
+    min-width: 10px;
+    min-height: 10px;
+    background: white;
+    border: 1px solid whitesmoke;
+    transition: 0.2s;
+}
+
+.activate {
+    background-color: black;
+}
