@@ -1,4 +1,5 @@
 let gridSize = 16;
+let colorChoice = "#000000";
 
 const root = document.documentElement;
 const container = document.querySelector(".grid");
@@ -8,38 +9,32 @@ const colorPicker = document.querySelector("#color-picker");
 
 /************************EVENT HANDLERS************************/
 const handleMouseOver = function (e) {
-    e.target.classList.add("activate");
+    e.target.style.backgroundColor = colorChoice;
 };
 
 const handleClear = function () {
-    const pixels = Array.from(document.querySelectorAll(".pixel"));
-    for (const pixel in pixels) {
-        const currentPixel = pixels[pixel];
-        if (currentPixel.classList.contains("activate")) {
-            currentPixel.classList.remove("activate");
-        }
-    }
+    createGrid(gridSize);
 };
 
-const handleSelector = function (e) {
+const handleSizeSelector = function (e) {
     gridSize = e.target.value;
     root.style.setProperty("--num_rows", gridSize);
     createGrid(gridSize);
 };
 
-const handleColor = function (e) {
+const handleColorChange = function (e) {
     colorChoice = e.target.value;
-    root.style.setProperty("--color_choice", colorChoice);
-    console.log(colorChoice);
 };
-/************************************************/
+/***********************************************************/
 
 const createGrid = function (gridSize) {
+    // Remove current "pixels"
     const allPixels = Array.from(container.querySelectorAll("div"));
     for (pixel in allPixels) {
         const currentPixel = allPixels[pixel];
         container.removeChild(currentPixel);
     }
+    // Create new grid of "pixels"
     for (let i = 0; i < gridSize * gridSize; i++) {
         const newPixel = document.createElement("div");
         newPixel.classList.add("pixel");
@@ -49,7 +44,9 @@ const createGrid = function (gridSize) {
 };
 
 clearButton.addEventListener("mouseup", handleClear);
-gridSelector.addEventListener("change", handleSelector);
-colorPicker.addEventListener("change", handleColor);
+gridSelector.addEventListener("change", handleSizeSelector);
+colorPicker.addEventListener("change", handleColorChange);
 
-createGrid(gridSize);
+window.onload = () => {
+    createGrid(gridSize);
+};
