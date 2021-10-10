@@ -1,6 +1,5 @@
 :root {
     --num_rows: 16;
-    --color_choice: #000000;
 }
 
 *,
@@ -11,11 +10,11 @@
 }
 
 body {
-    font-family: Helvetica, sans-serif;
-    background-color: skyblue;
+    font-family: "Lobster", cursive;
+    background-color: rgba(0, 0, 0, 0.082);
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: 2fr 85vh 1fr;
+    grid-template-rows: 2fr 83vh 1fr;
     justify-items: center;
     align-items: center;
 }
@@ -24,7 +23,7 @@ body {
     text-align: center;
     position: static;
     width: 100vw;
-    background-color: deepskyblue;
+    background-color: rgb(187, 187, 187);
     grid-row: 1;
     grid-column: span 3;
     font-size: 5rem;
@@ -33,7 +32,8 @@ body {
 }
 
 .grid {
-    border: 5px solid dimgrey;
+    border: 15px solid rgba(131, 131, 131, 0.822);
+    border-radius: 15px;
     box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.3);
     grid-row: 2;
     width: 700px;
@@ -57,6 +57,43 @@ body {
 }
 
 .controls {
+    justify-self: right;
+    /* border: 5px solid rgba(131, 131, 131, 0.822); */
     grid-column: 1;
     grid-row: 2;
+    margin: 30px;
+    padding: 10px;
+    /* background-color: rgba(143, 143, 143, 0.2); */
+    text-align: center;
+    color: white;
+}
+
+.control-container {
+    border: 2px solid rgba(131, 131, 131, 0.822);
+    border-radius: 5px;
+    width: 200px;
+    background-color: rgb(187, 187, 187);
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+#grid-selector {
+    padding: 10px;
+}
+
+button {
+    display: block;
+    background-color: rgb(187, 187, 187);
+    border: 2px solid rgba(131, 131, 131, 0.822);
+    border-radius: 5px;
+    font-family: "Lobster", cursive;
+    font-size: 32px;
+    color: white;
+    margin: 0 auto 10px auto;
+    width: 200px;
+}
+
+input {
+    display: block;
+    margin: 0 auto 10px auto;
 }

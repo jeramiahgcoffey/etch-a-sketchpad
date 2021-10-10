@@ -1,3 +1,4 @@
+// Default variable values
 let gridSize = 16;
 let colorChoice = "#000000";
 
@@ -13,13 +14,13 @@ const handleMouseOver = function (e) {
 };
 
 const handleClear = function () {
-    createGrid(gridSize);
+    newGrid(gridSize);
 };
 
 const handleSizeSelector = function (e) {
     gridSize = e.target.value;
     root.style.setProperty("--num_rows", gridSize);
-    createGrid(gridSize);
+    newGrid(gridSize);
 };
 
 const handleColorChange = function (e) {
@@ -27,7 +28,7 @@ const handleColorChange = function (e) {
 };
 /***********************************************************/
 
-const createGrid = function (gridSize) {
+const newGrid = function (gridSize) {
     // Remove current "pixels"
     const allPixels = Array.from(container.querySelectorAll("div"));
     for (pixel in allPixels) {
@@ -48,5 +49,5 @@ gridSelector.addEventListener("change", handleSizeSelector);
 colorPicker.addEventListener("change", handleColorChange);
 
 window.onload = () => {
-    createGrid(gridSize);
+    newGrid(gridSize);
 };
