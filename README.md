@@ -1,5 +1,5 @@
 # etch-a-sketchpad
-Retro Sketch Pad
+## Retro Sketch Pad
 
 This project is based on the Etch-a-Sketch toy orginally released in 1960. As you move your mouse around the grid, pixels are filled with a color of your choice.
 
