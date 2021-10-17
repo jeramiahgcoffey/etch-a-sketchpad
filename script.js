@@ -90,7 +90,12 @@ container.addEventListener("mousedown", (event) => {
     event.preventDefault()
     isDown = true
 });
+container.addEventListener("touchstart", (event) => {
+    event.preventDefault()
+    isDown = true
+});
 container.addEventListener("mouseup", () => isDown = false)
+container.addEventListener("touchend", () => isDown = false)
 clearButton.addEventListener("mouseup", handleClear);
 rainbowMode.addEventListener("mouseup", handleRainbow);
 clickToDrawMode.addEventListener("mouseup", handleClickToDraw);
