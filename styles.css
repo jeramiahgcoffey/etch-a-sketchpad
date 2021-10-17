@@ -99,6 +99,14 @@ button:hover {
     background-color: rgb(158, 158, 158);
 }
 
+.rainbow-mode {
+    background-color: rgb(139, 150, 250);
+}
+
+.rainbow-mode:hover {
+    background-color: rgba(139, 150, 250, 0.63);
+}
+
 input {
     display: block;
     margin: 0 auto 10px auto;

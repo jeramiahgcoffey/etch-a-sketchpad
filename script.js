@@ -1,21 +1,45 @@
 // Default variable values
 let gridSize = 16;
 let colorChoice = "#000000";
+let mode = "userChoice"
 
 const root = document.documentElement;
 const container = document.querySelector(".grid");
 const clearButton = document.querySelector("#clear");
+const rainbowMode = document.querySelector("#rainbow");
 const gridSelector = document.querySelector("#grid-selector");
 const colorPicker = document.querySelector("#color-picker");
 
 /************************EVENT HANDLERS************************/
 const handleMouseOver = function (e) {
-    e.target.style.backgroundColor = colorChoice;
+    if (mode == "userChoice") {
+        e.target.style.backgroundColor = colorChoice;
+    } else if (mode == "rainbow") {
+        const randomInt = function () {
+            return (Math.floor(Math.random() * 255 + 1))
+        }
+        const red = randomInt();
+        const green = randomInt();
+        const blue = randomInt();
+        e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    }
 };
 
 const handleClear = function () {
     newGrid(gridSize);
+    if (mode == "rainbow") {
+        handleRainbow();
+    }
 };
+
+const handleRainbow = function () {
+    if (mode == "userChoice") {
+        mode = "rainbow";
+    } else if (mode == "rainbow") {
+        mode = "userChoice";
+    }
+    rainbowMode.classList.toggle("rainbow-mode");
+}
 
 const handleSizeSelector = function (e) {
     gridSize = e.target.value;
@@ -24,6 +48,9 @@ const handleSizeSelector = function (e) {
 };
 
 const handleColorChange = function (e) {
+    if (mode == "rainbow") {
+        handleRainbow();
+    }
     colorChoice = e.target.value;
 };
 /***********************************************************/
@@ -45,6 +72,7 @@ const newGrid = function (gridSize) {
 };
 
 clearButton.addEventListener("mouseup", handleClear);
+rainbowMode.addEventListener("mouseup", handleRainbow);
 gridSelector.addEventListener("change", handleSizeSelector);
 colorPicker.addEventListener("change", handleColorChange);
 
