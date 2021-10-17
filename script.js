@@ -86,7 +86,10 @@ const newGrid = function (gridSize) {
     }
 };
 
-container.addEventListener("mousedown", () => isDown = true)
+container.addEventListener("mousedown", (event) => {
+    event.preventDefault()
+    isDown = true
+});
 container.addEventListener("mouseup", () => isDown = false)
 clearButton.addEventListener("mouseup", handleClear);
 rainbowMode.addEventListener("mouseup", handleRainbow);
