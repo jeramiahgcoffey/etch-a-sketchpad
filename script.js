@@ -2,26 +2,31 @@
 let gridSize = 16;
 let colorChoice = "#000000";
 let mode = "userChoice"
+let drawMode = "default"
+let isDown = false;
 
 const root = document.documentElement;
 const container = document.querySelector(".grid");
 const clearButton = document.querySelector("#clear");
 const rainbowMode = document.querySelector("#rainbow");
+const clickToDrawMode = document.querySelector("#click-mode")
 const gridSelector = document.querySelector("#grid-selector");
 const colorPicker = document.querySelector("#color-picker");
 
 /************************EVENT HANDLERS************************/
 const handleMouseOver = function (e) {
-    if (mode == "userChoice") {
-        e.target.style.backgroundColor = colorChoice;
-    } else if (mode == "rainbow") {
-        const randomInt = function () {
-            return (Math.floor(Math.random() * 255 + 1))
+    if (drawMode == "default" || (drawMode == "click-mode" && isDown)) {
+        if (mode == "userChoice") {
+            e.target.style.backgroundColor = colorChoice;
+        } else if (mode == "rainbow") {
+            const randomInt = function () {
+                return (Math.floor(Math.random() * 255 + 1))
+            }
+            const red = randomInt();
+            const green = randomInt();
+            const blue = randomInt();
+            e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         }
-        const red = randomInt();
-        const green = randomInt();
-        const blue = randomInt();
-        e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
     }
 };
 
@@ -31,6 +36,16 @@ const handleClear = function () {
         handleRainbow();
     }
 };
+
+const handleClickToDraw = function () {
+    if (drawMode == "default") {
+        drawMode = "click-mode";
+    } else {
+        drawMode = "default";
+    }
+    clickToDrawMode.classList.toggle("click-to-draw");
+    handleClear();
+}
 
 const handleRainbow = function () {
     if (mode == "userChoice") {
@@ -71,8 +86,11 @@ const newGrid = function (gridSize) {
     }
 };
 
+container.addEventListener("mousedown", () => isDown = true)
+container.addEventListener("mouseup", () => isDown = false)
 clearButton.addEventListener("mouseup", handleClear);
 rainbowMode.addEventListener("mouseup", handleRainbow);
+clickToDrawMode.addEventListener("mouseup", handleClickToDraw);
 gridSelector.addEventListener("change", handleSizeSelector);
 colorPicker.addEventListener("change", handleColorChange);
 

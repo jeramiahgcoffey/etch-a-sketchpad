@@ -99,6 +99,10 @@ button:hover {
     background-color: rgb(158, 158, 158);
 }
 
+.click-to-draw {
+    background-color: rgb(158, 158, 158);
+}
+
 .rainbow-mode {
     background-color: rgb(139, 150, 250);
 }
