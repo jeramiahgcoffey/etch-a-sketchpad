@@ -73,14 +73,18 @@ body {
 .control-container {
     border: 2px solid rgba(131, 131, 131, 0.822);
     border-radius: 5px;
-    width: 200px;
     background-color: rgb(187, 187, 187);
-    font-size: 32px;
-    margin-bottom: 10px;
 }
 
 #grid-selector {
     padding: 10px;
+}
+
+button,
+.control-container {
+    width: 200px;
+    font-size: 32px;
+    margin: 0 auto 10px auto;
 }
 
 button {
@@ -89,10 +93,7 @@ button {
     border: 2px solid rgba(131, 131, 131, 0.822);
     border-radius: 5px;
     font-family: "Lobster", cursive;
-    font-size: 32px;
     color: white;
-    margin: 0 auto 10px auto;
-    width: 200px;
 }
 
 button:hover {
@@ -126,7 +127,7 @@ input {
 
 @media (max-width: 1200px) {
     body {
-        grid-template-columns: 1fr 70%;
+        grid-template-columns: 1fr 65%;
     }
 
     .controls {
@@ -146,7 +147,8 @@ input {
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 750px),
+(max-height: 700px) {
     body {
         grid-template-columns: 100vw;
         grid-template-rows: .5fr 1.3fr .5fr .3fr;
@@ -162,6 +164,7 @@ input {
     }
 
     .controls {
+        display: inline;
         grid-column: 1;
         grid-row: 3;
         justify-self: center;
@@ -175,9 +178,9 @@ input {
 }
 
 @media (max-width: 550px),
-(max-height: 650px) {
+(max-height: 700px) {
     body {
-        grid-template-rows: 1% 1.3fr .5fr 1%;
+        grid-template-rows: 1% 1fr .5fr 1%;
     }
 
     .grid {
@@ -191,7 +194,7 @@ input {
 }
 
 @media (max-width: 400px),
-(max-height: 525px) {
+(max-height: 700px) {
     .title {
         font-size: 2.8rem;
         margin-bottom: 15px;
