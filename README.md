@@ -15,8 +15,6 @@ This project was built as a challenge for 'The Odin Project'. All code and desig
   - [Useful resources](#useful-resources)
 - [Author](#author)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The project
@@ -30,12 +28,12 @@ This project is based on the Etch-a-Sketch toy orginally released in 1960. As yo
 
 ### Screenshot
 
-![Coming Soon]()
+![](./Screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Public Repository: [Here](https://github.com/jeramiahgcoffey/etch-a-sketchpad)
+- Live Site URL: [Here](https://jeramiahgcoffey.github.io/etch-a-sketchpad/)
 
 ## My process
 
@@ -50,7 +48,7 @@ This project is based on the Etch-a-Sketch toy orginally released in 1960. As yo
 ### What I learned
 This project taught me a lot about DOM manipulation. Using JavaScript and CSS together, I was able to create a more interactive experience for the user. I learned about CSS custom properties, and how to update them via JavaScript, and I also solidified my basic knowledge of CSS Grid. Devloping this application has helped me realized my need to focus on further developing my styling techniques, and I plan to update this project as well as this ReadMe as my CSS skills improve.
 
-UPDATE 10/17/2021: I have gained an understanding of media queries, and the importance of a mobile-first approach. Although this project was built with a desktop-first approach, and is not yet responsive to touch input, it was very important to learn at this stage in my personal development.
+I have gained an understanding of media queries, and the importance of a mobile-first approach. Although this project was built with a desktop-first approach, and is not yet responsive to touch input, it was very important to learn at this stage in my personal development.
 
 ### Continued development
 
