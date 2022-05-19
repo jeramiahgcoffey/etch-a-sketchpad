@@ -27,8 +27,11 @@ This project is based on the Etch-a-Sketch toy orginally released in 1960. As yo
 -The clear button mimics the action of shaking an Etch-a-Sketch.
 
 ### Screenshot
+![image](https://user-images.githubusercontent.com/84428559/169410067-61a0a120-4ee2-486c-91db-31de52820913.png)
+
 
 ![](./Screenshot.png)
+
 
 ### Links
 
