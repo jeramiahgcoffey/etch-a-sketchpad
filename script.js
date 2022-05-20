@@ -1,10 +1,30 @@
-class Grid {
+class GridController {
     constructor(size = 16) {
         this.size = size
         this.colorChoice = '#000000'
         this.colorMode = 'userChoice'
         this.drawMode = 'default'
         this.isDown = false
+    }
+
+    getSize() {
+        return this.size
+    }
+
+    getDrawMode() {
+        return this.drawMode
+    }
+
+    getColorMode() {
+        return this.colorMode
+    }
+
+    getColorChoice() {
+        return this.colorChoice
+    }
+
+    getIsDown() {
+        return this.isDown
     }
 
     setSize(size) {
@@ -28,7 +48,7 @@ class Grid {
     }
 }
 
-const grid = new Grid()
+const grid = new GridController()
 
 /***************************SELECTORS***************************/
 const root = document.documentElement
@@ -41,13 +61,14 @@ const colorPicker = document.querySelector('#color-picker')
 
 /************************EVENT HANDLERS************************/
 const handleMouseOver = (e) => {
-    if (
-        grid.drawMode == 'default' ||
-        (grid.drawMode == 'click-mode' && grid.isDown)
-    ) {
-        if (grid.colorMode == 'userChoice') {
-            e.target.style.backgroundColor = grid.colorChoice
-        } else if (grid.colorMode == 'rainbow') {
+    const colorMode = grid.getColorMode()
+    const colorChoice = grid.getColorChoice()
+    const drawMode = grid.getDrawMode()
+    const isDown = grid.getIsDown()
+    if (drawMode == 'default' || (drawMode == 'click-mode' && isDown)) {
+        if (colorMode == 'userChoice') {
+            e.target.style.backgroundColor = colorChoice
+        } else if (colorMode == 'rainbow') {
             const randomInt = () => {
                 return Math.floor(Math.random() * 255 + 1)
             }
@@ -60,39 +81,39 @@ const handleMouseOver = (e) => {
 }
 
 const handleRainbow = () => {
-    if (grid.colorMode == 'userChoice') {
+    const colorMode = grid.getColorMode()
+    if (colorMode == 'userChoice') {
         grid.setColorMode('rainbow')
-    } else if (grid.colorMode == 'rainbow') {
+    } else if (colorMode == 'rainbow') {
         grid.setColorMode('userChoice')
     }
     rainbowMode.classList.toggle('rainbow-mode')
 }
 
 const handleClear = () => {
-    newGrid(grid.size)
-    if (grid.colorMode == 'rainbow') {
+    newGrid(grid.getSize())
+    if (grid.getColorMode() == 'rainbow') {
         handleRainbow()
     }
 }
 
 const handleClickToDraw = () => {
-    if (grid.drawMode == 'default') {
+    if (grid.getDrawMode() == 'default') {
         grid.setDrawMode('click-mode')
     } else {
         grid.setDrawMode('default')
     }
     clickToDrawMode.classList.toggle('click-to-draw')
-    handleClear()
 }
 
 const handleSizeSelector = (e) => {
-    grid.size = e.target.value
-    root.style.setProperty('--num_rows', grid.size)
-    newGrid(grid.size)
+    grid.setSize(e.target.value)
+    root.style.setProperty('--num_rows', grid.getSize())
+    newGrid(grid.getSize())
 }
 
 const handleColorChange = (e) => {
-    if (grid.colorMode == 'rainbow') {
+    if (grid.getColorMode() == 'rainbow') {
         handleRainbow()
     }
     grid.setColorChoice(e.target.value)
